@@ -278,8 +278,44 @@ namespace feature1
 
 
 
+
         
             MessageBox.Show("accomplish");
+        }
+
+     
+      
+      
+        /// <summary>
+        /// GB2312码一共有94个区。每个区有94位。共8836个码位。
+        /// 0~9区收录除汉字外，682个字符。
+        /// 10~15区为空白区，没有使用
+        /// 16~55 收录3755个一级
+        /// 56~87区 收录3008个二级汉字
+        /// 88~94区为空白区
+        /// 它是从b0 a1 的"啊"字 到b0 a2的 “阿”依次往下，也就是16进制的。一直到f7fe
+        ///
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 输出中文字符使用编码ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            #region 遍历GB2312的方法
+            string strchi;//汉字字符
+
+            //在gb2312中汉字是从B0A1 ..B0A2...一直到F7FE.十六进制。也就是B0 =176开始到247，A1=161开始到254
+            for (int i = 176; i <= 247; i++)
+            {
+                for (int j = 161; j <= 254; j++)
+                {
+                    byte[] byteWord = new byte[] {Convert.ToByte(i),Convert.ToByte(j) };
+                    strchi = Encoding.GetEncoding("GB2312").GetString(byteWord); //直接把byte两元素扔进去，就会得到汉字。
+                    MessageBox.Show(strchi);
+                }
+            }
+
+          
+            #endregion
         }
     }//class
 }//namespace
