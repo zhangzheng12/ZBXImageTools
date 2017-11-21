@@ -247,38 +247,25 @@ namespace feature1
             g.FillRectangle(Brushes.White, new Rectangle(0, 0, 3000, 3000));
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
-      
-            //foreach (var item in )
-            //{
+            string strChi = File.ReadAllText("汉字表.txt");
+            string[] filter = new string[] {"0","1","2","3","4","5","6","7","8","9"," ","\r\n", "０", "１", "２", "３", "４", "５", "６", "７", "８", "９", "　" };
+            string[] strfont = strChi.Split(filter, StringSplitOptions.RemoveEmptyEntries);
 
-            //}
-
-
-
-            string[] strfont = new string[] {"贷","货","袋","款", "敕", "赔"
-            ,"賠","贵","责","款","軟","债","偾","履","屜"};
-
-            foreach (var item in strfont)//对于每个字
+            for (int i = 0; i < strfont.Length; i++)
             {
-                string path = @"C:\Users\zbx\Desktop\字体\" + item;
+                int x = i / 100 * 30;
+                int y = i % 100 * 30;
+                PointF drawPoint = new PointF(x, y);
+                Font drawFont = new Font("宋体", 16, FontStyle.Regular);
+                g.DrawString(strfont[i], drawFont, drawBrush, drawPoint);
 
-                
-                for (int i = 0; i < FontFamily.Families.Length; i++)
-                {
-                    int x = i / 10 * 50;
-                    int y = i % 10 * 50;
-                    //PointF drawPoint = new PointF(0.0F, 0.0F);
-                    PointF drawPoint = new PointF(x, y);
-                    Font drawFont = new Font(FontFamily.Families[i], 16, FontStyle.Regular);
-                    g.DrawString(item, drawFont, drawBrush, drawPoint);
-                }
+            }
+            string path = @"C:\Users\zbx\Desktop\汉字表";
+            bit.Save(path + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            bit.Dispose();
+            g.Dispose();
 
-                bit.Save(path + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-                bit.Dispose();
-                g.Dispose();
-
-            }//foreach
-
+        
             MessageBox.Show("accomplish");
         }
     }//class
