@@ -242,28 +242,41 @@ namespace feature1
 
         private void 输出中文字符到图片ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Bitmap bit = new Bitmap(3000,3000);
-            Graphics g = Graphics.FromImage(bit);
-            g.FillRectangle(Brushes.White, new Rectangle(0, 0, 3000, 3000));
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
+          
 
             string strChi = File.ReadAllText("汉字表.txt");
             string[] filter = new string[] {"0","1","2","3","4","5","6","7","8","9"," ","\r\n", "０", "１", "２", "３", "４", "５", "６", "７", "８", "９", "　" };
             string[] strfont = strChi.Split(filter, StringSplitOptions.RemoveEmptyEntries);
 
-            for (int i = 0; i < strfont.Length; i++)
+            Bitmap bit;
+            Graphics g;
+            //输出3张 每张1200字的图片
+            for (int bitIndex = 0; bitIndex < 3; bitIndex++)
             {
-                int x = i / 100 * 30;
-                int y = i % 100 * 30;
-                PointF drawPoint = new PointF(x, y);
-                Font drawFont = new Font("宋体", 16, FontStyle.Regular);
-                g.DrawString(strfont[i], drawFont, drawBrush, drawPoint);
+                
+                 bit = new Bitmap(2000, 2000);
+                 g = Graphics.FromImage(bit);
+                g.FillRectangle(Brushes.White, new Rectangle(0, 0, 2000, 2000));
+                SolidBrush drawBrush = new SolidBrush(Color.Black);
+                
+                for (int i = 0; i < 1200; i++)
+                {
+                    int x = i / 30 * 50;
+                    int y = i % 30 * 50;
+                    PointF drawPoint = new PointF(x, y);
+                    Font drawFont = new Font("宋体", 20, FontStyle.Regular);
+                    g.DrawString(strfont[i+bitIndex*1200], drawFont, drawBrush, drawPoint);
 
+                }
+                string path = @"C:\Users\zbx\Desktop\汉字表"+bitIndex;
+                bit.Save(path + ".png", System.Drawing.Imaging.ImageFormat.Png);
+                bit.Dispose();
+                g.Dispose();
             }
-            string path = @"C:\Users\zbx\Desktop\汉字表";
-            bit.Save(path + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            bit.Dispose();
-            g.Dispose();
+            
+           
+
+
 
         
             MessageBox.Show("accomplish");

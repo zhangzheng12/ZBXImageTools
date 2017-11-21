@@ -62,6 +62,7 @@
             this.输出特定字的所有字体到文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.裁掉空白ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.相似度测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.输出中文字符到图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.内容CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +72,6 @@
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.输出中文字符到图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -311,37 +311,45 @@
             // 输出特定字的所有字体到图片ToolStripMenuItem
             // 
             this.输出特定字的所有字体到图片ToolStripMenuItem.Name = "输出特定字的所有字体到图片ToolStripMenuItem";
-            this.输出特定字的所有字体到图片ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.输出特定字的所有字体到图片ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.输出特定字的所有字体到图片ToolStripMenuItem.Text = "输出特定字的所有字体到图片";
             this.输出特定字的所有字体到图片ToolStripMenuItem.Click += new System.EventHandler(this.输出特定字的所有字体到图片ToolStripMenuItem_Click);
             // 
             // 输出宋特定字的宋体到文件夹ToolStripMenuItem
             // 
             this.输出宋特定字的宋体到文件夹ToolStripMenuItem.Name = "输出宋特定字的宋体到文件夹ToolStripMenuItem";
-            this.输出宋特定字的宋体到文件夹ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.输出宋特定字的宋体到文件夹ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.输出宋特定字的宋体到文件夹ToolStripMenuItem.Text = "输出宋特定字的宋体到文件夹";
             this.输出宋特定字的宋体到文件夹ToolStripMenuItem.Click += new System.EventHandler(this.输出宋特定字的宋体到文件夹ToolStripMenuItem_Click);
             // 
             // 输出特定字的所有字体到文件夹ToolStripMenuItem
             // 
             this.输出特定字的所有字体到文件夹ToolStripMenuItem.Name = "输出特定字的所有字体到文件夹ToolStripMenuItem";
-            this.输出特定字的所有字体到文件夹ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.输出特定字的所有字体到文件夹ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.输出特定字的所有字体到文件夹ToolStripMenuItem.Text = "输出特定字的所有字体到文件夹";
             this.输出特定字的所有字体到文件夹ToolStripMenuItem.Click += new System.EventHandler(this.输出特定字的所有字体到文件夹ToolStripMenuItem_Click);
             // 
             // 裁掉空白ToolStripMenuItem
             // 
             this.裁掉空白ToolStripMenuItem.Name = "裁掉空白ToolStripMenuItem";
-            this.裁掉空白ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.裁掉空白ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.裁掉空白ToolStripMenuItem.Text = "裁掉空白-图像文件1";
             this.裁掉空白ToolStripMenuItem.Click += new System.EventHandler(this.裁掉空白ToolStripMenuItem_Click);
             // 
             // 相似度测试ToolStripMenuItem
             // 
             this.相似度测试ToolStripMenuItem.Name = "相似度测试ToolStripMenuItem";
-            this.相似度测试ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.相似度测试ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.相似度测试ToolStripMenuItem.Text = "相似度测试";
             this.相似度测试ToolStripMenuItem.Click += new System.EventHandler(this.相似度测试ToolStripMenuItem_Click);
+            // 
+            // 输出中文字符到图片ToolStripMenuItem
+            // 
+            this.输出中文字符到图片ToolStripMenuItem.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.输出中文字符到图片ToolStripMenuItem.Name = "输出中文字符到图片ToolStripMenuItem";
+            this.输出中文字符到图片ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.输出中文字符到图片ToolStripMenuItem.Text = "输出中文字符到图片";
+            this.输出中文字符到图片ToolStripMenuItem.Click += new System.EventHandler(this.输出中文字符到图片ToolStripMenuItem_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -406,13 +414,6 @@
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-            // 
-            // 输出中文字符到图片ToolStripMenuItem
-            // 
-            this.输出中文字符到图片ToolStripMenuItem.Name = "输出中文字符到图片ToolStripMenuItem";
-            this.输出中文字符到图片ToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.输出中文字符到图片ToolStripMenuItem.Text = "输出中文字符到图片";
-            this.输出中文字符到图片ToolStripMenuItem.Click += new System.EventHandler(this.输出中文字符到图片ToolStripMenuItem_Click);
             // 
             // Form1
             // 
