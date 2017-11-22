@@ -279,7 +279,25 @@ namespace feature1.Util
             height = down - up;
 
         }
+        /// <summary>
+        /// 获取原图指定位置的图片，返回
+        /// </summary>
+        /// <param name="src">原图</param>
+        /// <param name="rect">需要截取的位置</param>
+        /// <returns>截取图</returns>
+        public static Bitmap getPositionImage(Bitmap src, Rectangle rect)
+        {
+            int width = rect.Width;
+            int height = rect.Height;
+            Bitmap save = new Bitmap(width, height);//保存图的大小
 
+            Rectangle rect1 = rect;//原图的哪个部分哪个大小来拿绘制
+            Rectangle rect2 = new Rectangle(0, 0, width, height);//在新图的什么位置开始绘制什么大小
+            Graphics g = Graphics.FromImage(save);
+            //g.FillRectangle(Brushes.White, rect);
+            g.DrawImage(src, rect2, rect1, GraphicsUnit.Pixel);
+            return save;
+        }
 
     }//class
 }//namespace

@@ -314,8 +314,20 @@ namespace feature1
                 }
             }
 
-          
+           
             #endregion
+        }
+
+        private void 选择一幅图像截取字保存ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitmap bit = new Bitmap (pathImageFiles1[0]);//这是选择的那幅图像
+            for (int i = 0; i < 100; i++)//识别出的文字数量，如100个
+            {
+                Rectangle rect = new Rectangle();//这个是要截取的内容区域。是有确定的值。
+                Bitmap bitSave = ImageDealClass.getPositionImage(bit,rect);
+                bitSave.Save(@"C:\Users\zbx\Desktop\" + i + ".png", System.Drawing.Imaging.ImageFormat.Png);
+            }
+
         }
     }//class
 }//namespace

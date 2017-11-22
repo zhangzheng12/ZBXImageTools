@@ -63,6 +63,7 @@
             this.裁掉空白ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.相似度测试ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.输出中文字符到图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.输出中文字符使用编码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.内容CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,7 @@
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.输出中文字符使用编码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.选择一幅图像截取字保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -287,13 +288,13 @@
             // 自定义CToolStripMenuItem
             // 
             this.自定义CToolStripMenuItem.Name = "自定义CToolStripMenuItem";
-            this.自定义CToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.自定义CToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.自定义CToolStripMenuItem.Text = "自定义(&C)";
             // 
             // 选项OToolStripMenuItem
             // 
             this.选项OToolStripMenuItem.Name = "选项OToolStripMenuItem";
-            this.选项OToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.选项OToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.选项OToolStripMenuItem.Text = "选项(&O)";
             // 
             // 处理ToolStripMenuItem
@@ -305,7 +306,8 @@
             this.裁掉空白ToolStripMenuItem,
             this.相似度测试ToolStripMenuItem,
             this.输出中文字符到图片ToolStripMenuItem,
-            this.输出中文字符使用编码ToolStripMenuItem});
+            this.输出中文字符使用编码ToolStripMenuItem,
+            this.选择一幅图像截取字保存ToolStripMenuItem});
             this.处理ToolStripMenuItem.Name = "处理ToolStripMenuItem";
             this.处理ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.处理ToolStripMenuItem.Text = "处理";
@@ -352,6 +354,13 @@
             this.输出中文字符到图片ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
             this.输出中文字符到图片ToolStripMenuItem.Text = "输出中文字符到图片";
             this.输出中文字符到图片ToolStripMenuItem.Click += new System.EventHandler(this.输出中文字符到图片ToolStripMenuItem_Click);
+            // 
+            // 输出中文字符使用编码ToolStripMenuItem
+            // 
+            this.输出中文字符使用编码ToolStripMenuItem.Name = "输出中文字符使用编码ToolStripMenuItem";
+            this.输出中文字符使用编码ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.输出中文字符使用编码ToolStripMenuItem.Text = "遍历GB2312编码汉字";
+            this.输出中文字符使用编码ToolStripMenuItem.Click += new System.EventHandler(this.输出中文字符使用编码ToolStripMenuItem_Click_1);
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -417,12 +426,12 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
-            // 输出中文字符使用编码ToolStripMenuItem
+            // 选择一幅图像截取字保存ToolStripMenuItem
             // 
-            this.输出中文字符使用编码ToolStripMenuItem.Name = "输出中文字符使用编码ToolStripMenuItem";
-            this.输出中文字符使用编码ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
-            this.输出中文字符使用编码ToolStripMenuItem.Text = "遍历GB2312编码汉字";
-            this.输出中文字符使用编码ToolStripMenuItem.Click += new System.EventHandler(this.输出中文字符使用编码ToolStripMenuItem_Click_1);
+            this.选择一幅图像截取字保存ToolStripMenuItem.Name = "选择一幅图像截取字保存ToolStripMenuItem";
+            this.选择一幅图像截取字保存ToolStripMenuItem.Size = new System.Drawing.Size(244, 26);
+            this.选择一幅图像截取字保存ToolStripMenuItem.Text = "选择一幅图像截取字保存";
+            this.选择一幅图像截取字保存ToolStripMenuItem.Click += new System.EventHandler(this.选择一幅图像截取字保存ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -489,6 +498,7 @@
         private System.Windows.Forms.ToolStripMenuItem 输出宋特定字的宋体到文件夹ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 输出中文字符到图片ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 输出中文字符使用编码ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 选择一幅图像截取字保存ToolStripMenuItem;
     }
 }
 
