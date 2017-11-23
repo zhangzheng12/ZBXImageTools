@@ -303,6 +303,7 @@ namespace feature1
             #region 遍历GB2312的方法
             string strchi;//汉字字符
 
+
             //在gb2312中汉字是从B0A1 ..B0A2...一直到F7FE.十六进制。也就是B0 =176开始到247，A1=161开始到254
             for (int i = 176; i <= 247; i++)
             {
@@ -359,6 +360,8 @@ namespace feature1
                 toolStripProgressBar1.Value = 0;
             }
             toolStripProgressBar1.Maximum = filePath.Length;
+            int mistake = 0;//计数：超过15阈值的计数
+            double percent = 0;
 
             for (int i = 0; i < filePath.Length; i++)
             {
@@ -377,12 +380,17 @@ namespace feature1
                 g.DrawImage(imgOld.ToBitmap(), drawPoint1);
                 g.DrawImage(imgNew.ToBitmap(), drawPoint2);
                 int diffNum = ImageDealClass.getHashDiff(imgOld, imgNew);
+                if (diffNum>15)
+                {
+                    mistake++;
+                }
                 g.DrawString(diffNum.ToString(), drawFont, drawBrush, drawPoint3);//把差异数画到坐标
                 toolStripProgressBar1.Value++;
             }
-
+            percent = Convert.ToDouble(mistake) / filePath.Length*100;
+            
             bit.Save(@"C:\Users\zbx\Desktop\结果.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            MessageBox.Show(@"生成图片位于：C:\Users\zbx\Desktop\结果.jpg");
+            MessageBox.Show(@"生成图片位于：C:\Users\zbx\Desktop\结果.jpg"+"超出的共有"+mistake+""+"占百分比为:"+percent);
         }
 
     }//class
