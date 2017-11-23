@@ -329,5 +329,61 @@ namespace feature1
             }
 
         }
+
+
+        //代码几乎一样，只是调整了输出结果的显示。
+        private void 相似度测试电子扫描ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            xiangsiduTest2();
+        }
+
+        /// <summary>
+        /// 相似度测试 包括相似度识别和生成图片报告
+        /// </summary>
+        private void xiangsiduTest2()
+        {
+            string pathOld = pathFolder1;
+            string pathNew = pathFolder2;
+
+            string[] filePath = Directory.GetFiles(pathOld).OrderBy(x => x.Length).ThenBy(x => x).ToArray();
+            string[] filePathNew = Directory.GetFiles(pathNew).OrderBy(x => x.Length).ThenBy(x => x).ToArray();
+            //新建一张图，在图上绘制报告图
+            Bitmap bit = new Bitmap(1800, 3000);
+            Graphics g = Graphics.FromImage(bit);
+            g.FillRectangle(Brushes.White, new Rectangle(0, 0, 1800, 3000));
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
+
+            //初始化进度条
+            if (toolStripProgressBar1.Value != 0)
+            {
+                toolStripProgressBar1.Value = 0;
+            }
+            toolStripProgressBar1.Maximum = filePath.Length;
+
+            for (int i = 0; i < filePath.Length; i++)
+            {
+                Image<Bgr, Byte> imgOld = new Image<Bgr, Byte>(filePath[i]);
+                Image<Bgr, Byte> imgNew = new Image<Bgr, Byte>(filePathNew[i]);
+
+                int x = i / 100;  //如果超过一百条，则在横坐标150位置继续画。 一段长度占150.假设能共有1200个字。要12行。长度总为12*150=1800.垂直需要100*30=3000；
+                int y = i % 100;
+                PointF drawPoint0 = new PointF(0+x*150, y * 30);
+                PointF drawPoint1 = new PointF(30+x*150, y * 30);
+                PointF drawPoint2 = new PointF(70+x*150, y * 30);
+                PointF drawPoint3 = new PointF(110+x*150, y * 30);
+                Font drawFont0 = new Font("宋体", 10, FontStyle.Regular);
+                Font drawFont = new Font("宋体", 16, FontStyle.Regular);
+                g.DrawString(Path.GetFileNameWithoutExtension(filePath[i]), drawFont0, drawBrush, drawPoint0);//把字体画出来
+                g.DrawImage(imgOld.ToBitmap(), drawPoint1);
+                g.DrawImage(imgNew.ToBitmap(), drawPoint2);
+                int diffNum = ImageDealClass.getHashDiff(imgOld, imgNew);
+                g.DrawString(diffNum.ToString(), drawFont, drawBrush, drawPoint3);//把差异数画到坐标
+                toolStripProgressBar1.Value++;
+            }
+
+            bit.Save(@"C:\Users\zbx\Desktop\结果.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            MessageBox.Show(@"生成图片位于：C:\Users\zbx\Desktop\结果.jpg");
+        }
+
     }//class
 }//namespace
